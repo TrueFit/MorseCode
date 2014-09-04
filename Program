@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MorseCodeTranslator;
+
+namespace MorseCodeTranslator
+{
+    /// <summary>
+    /// Main Program
+    /// </summary>
+    public class Program
+    {
+        /// <summary>
+        /// Main entry point
+        /// </summary>
+        /// <param name="args"></param>
+        static void Main(string[] args)
+        {
+            FileInfo InputFile = new FileInfo(@"c:\temp\SampleInput.txt");
+            try
+            {
+                //Read file via FileReader Class, then translate the result from morseCode to English and return results to the console
+                Console.WriteLine(FileReader.ReadFile(InputFile).ToEnglish());
+            }
+            catch (Exception ex)
+            {
+                //show any errors that occurred to the user
+                Console.WriteLine(ex.Message);
+            }            
+            
+            Console.WriteLine("Press any key to continue");
+            Console.ReadLine();
+        }
+    }
+}
