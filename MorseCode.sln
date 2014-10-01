@@ -6,6 +6,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{624EEE7B-03C6-4BD4-ACD6-C89BB1C6CAFF}"
 	ProjectSection(SolutionItems) = preProject
 		Readme.txt = Readme.txt
+		SampleMorseCode.txt = SampleMorseCode.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MorseCode.Lib", "MorseCode.Lib\MorseCode.Lib.csproj", "{80D8B46C-76EE-4727-A9B7-480B34377450}"

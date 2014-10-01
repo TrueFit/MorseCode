@@ -98,6 +98,9 @@ namespace MorseCode.Lib
             if (string.IsNullOrEmpty(inputString))
                 throw new ArgumentNullException("inputString");
 
+            Logger.Info("Morse Code Translator Input");
+            Logger.Info(inputString);
+
             TokenList tokens = Tokenize(inputString);
            
             // Evaluate the tokens to produce the output value

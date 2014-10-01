@@ -25,23 +25,29 @@ namespace MorseCode
             IUnityContainer container = new UnityContainer();
             container.RegisterType<ILoggingService, NLogLoggingService>(new InjectionConstructor("MorseCode"));
             container.RegisterType<ITranslator, MorseCodeTranslator>();
-            container.BuildUp(typeof(ITranslator));
-
+            
             // Configure logging and exception handling        
             Logger = container.Resolve<ILoggingService>();
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionHandler;
 
             Logger.Info("Starting Morse Code translator...");
+            
+            // check for a filename passed into the command line
+            if (args.Length != 1)
+            {
+                Logger.Info("Usage: MorseCode.exe <filename>");
+                Logger.Info("Hit any key to exit.");
+                Console.ReadKey();
+                Environment.Exit(1);
+            }
+            
+            ITranslator translator = container.Resolve<ITranslator>();
+            var output = translator.TranslateFile(args[0]);
+            Logger.Info("Morse Code Translator Output");
+            Logger.Info(output);
 
-            //var output = string.Empty;
-
-            //var lines = File.ReadAllLines(args[0]);
-            //foreach (string line in lines)
-            //{
-
-            //}
             Logger.Info("Exiting Morse Code translator...");
-
+            Logger.Info("Hit any key to exit.");
             Console.ReadKey();
         }
 
