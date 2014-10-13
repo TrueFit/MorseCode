@@ -1,6 +1,18 @@
 Morse Code
 ==========
 
+
+To Use:
+
+The encoded morse code is located in codeText, this can be replaced with any encoded text
+
+To run the app type node morse.js from the console, it will decode the morse code located in codeText
+
+To test the app run grunt from the console
+
+* I included the node_modules folder in the git repo because there is only a small number of modules 
+
+
 The Problem
 -----------
 Morse code is a way to encode messages in a series of long and short sounds or visual signals. During transmission, operators use pauses to split letters and words.
@@ -33,3 +45,4 @@ Please use whatever technology and techniques you feel are applicable to solve t
 Please fork this repository. When you have completed your solution, please issue a pull request to notify us that you are ready.
 
 Have fun.
+
