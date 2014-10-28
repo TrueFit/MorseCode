@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Morse Code Translator</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+			background-color: #FCFFF5;
+			margin: 0em;
+			font-family: Helvetica, Arial, Sans-Serif;
+		}
+		h1 {
+			color: #193441;
+			background-color: #D1DBBD;
+			margin-top: 0em;
+			padding: 1em;
+		}
+		table {
+			display: inline-block;
+			margin-bottom: 1em;
+		}
+		.leftCol {
+			width: 50%;
+			text-align: right;
+			padding-right: 1em;
+		}
+		.rightCol {
+			width: 50%;
+			text-align: left;
+			padding-left: 1em;
+		}
+		form {
+			margin-bottom: 1em;
+		}
+		#resultBox {
+			background-color: #D1DBBD;
+			padding: 1em;
+		}
+		#result {
+			background: yellow;
+		}
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+	<h1>Morse Code Translator</h1>
+	<p>Please type morse code using the key below</p>
+	<table>
+		<tr><td class="leftCol">.</td><td class="rightCol">dot</td></tr>
+		<tr><td class="leftCol">-</td><td class="rightCol">dash</td></tr>
+		<tr><td class="leftCol">|</td><td class="rightCol">break</td></tr>
+	</table>
+	<form id="morseForm" action="#">
+		<input id="morseText" name="morseText" type="text" />
+		<input id="morseSubmit" name="morseSubmit" type="submit" />
+	</form>
+	<div id="resultBox"><span>Result: </span><span id="result"></span></div>
+</body>
+</html>
