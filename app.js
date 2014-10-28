@@ -30,7 +30,7 @@ var app = app || {};	// Create a namespace for our classes
 		return this.currentNode;
 	};
 	
-	// Get the 
+	// Get the JSON data from the given url and send the parsed data to the callback given
 	app.getJSON = function(url, callback) {
 		$.ajax({
 			dataType: "json",
