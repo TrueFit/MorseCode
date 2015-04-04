@@ -1,0 +1,192 @@
+import java.io.*;
+import java.util.Scanner;
+
+/**
+ * This class converts Morse code into English
+ * 
+ * @author JT Deane
+ * @version 1.0
+ *  File: Morse.java
+ *  Created: March 14, 2015
+ * 
+ */
+
+public class Morse {
+
+    /**
+     * @param args
+     * @throws java.io.FileNotFoundException
+     */
+    
+    public static void main(String[] args) throws FileNotFoundException {
+        
+        //Read in file name from user
+        System.out.println("Enter file to read for morse code interpretation:");        
+        Scanner userInput = new Scanner(System.in);
+        
+        String fileName;
+        fileName = userInput.nextLine();
+        File newFile = new File(fileName);
+        
+        boolean exists = false;
+        
+        //Ensure that given file name exists
+        //Repeat process until given valid file name
+        while(!exists){
+            try{
+                Scanner pageScan = new Scanner(newFile);
+                exists = true;
+            } catch (FileNotFoundException e){
+                System.out.println("File was not found. Please check entry and try again: ");
+                Scanner userInput2 = new Scanner(System.in);
+                fileName = userInput2.nextLine();
+                newFile = new File(fileName);
+                exists = false;
+            }
+        }
+        
+        //Use pageScan to determine when to insert new lines
+        Scanner pageScan = new Scanner(newFile);
+        
+        String input;
+        String currentLine;
+        String output = "";
+        
+        //Scan file while handling new lines
+        while(pageScan.hasNextLine()){
+            
+            currentLine = pageScan.nextLine();
+            
+            //Use lineScan to handle break points
+            Scanner lineScan = new Scanner(currentLine);
+            lineScan.useDelimiter("\n|\\|");
+            
+            while(lineScan.hasNext()){
+            
+                input = lineScan.next();
+
+                //Switch Morse code values to English characters
+                switch (input) {
+                    case "":
+                        output += " ";
+                        break;
+                    case ".-":
+                        output += "a";
+                        break;
+                    case "-...":
+                        output += "b";
+                        break;
+                    case "-.-.":
+                        output += "c";
+                        break;
+                    case "-..":
+                        output += "d";
+                        break;
+                    case ".":
+                        output += "e";
+                        break;
+                    case "..-.":
+                        output += "f";
+                        break;
+                    case "--.":
+                        output += "g";
+                        break;
+                    case "....":
+                        output += "h";
+                        break;
+                    case "..":
+                        output += "i";
+                        break;
+                    case ".---":
+                        output += "j";
+                        break;
+                    case "-.-":
+                        output += "k";
+                        break;
+                    case ".-..":
+                        output += "l";
+                        break;
+                    case "--":
+                        output += "m";
+                        break;
+                    case "-.":
+                        output += "n";
+                        break;
+                    case "---":
+                        output += "o";
+                        break;
+                    case ".--.":
+                        output += "p";
+                        break;
+                    case "--.-":
+                        output += "q";
+                        break;
+                    case ".-.":
+                        output += "r";
+                        break;
+                    case "...":
+                        output += "s";
+                        break;
+                    case "-":
+                        output += "t";
+                        break;
+                    case "..-":
+                        output += "u";
+                        break;
+                    case "...-":
+                        output += "v";
+                        break;
+                    case ".--":
+                        output += "w";
+                        break;
+                    case "-..-":
+                        output += "x";
+                        break;
+                    case "-.--":
+                        output += "y";
+                        break;
+                    case "--..":
+                        output += "z";
+                        break;
+                    case ".----":
+                        output += "1";
+                        break;
+                    case "..---":
+                        output += "2";
+                        break;
+                    case "...--":
+                        output += "3";
+                        break;
+                    case "....-":
+                        output += "4";
+                        break;
+                    case ".....":
+                        output += "5";
+                        break;
+                    case "-....":
+                        output += "6";
+                        break;
+                    case "--...":
+                        output += "7";
+                        break;
+                    case "---..":
+                        output += "8";
+                        break;
+                    case "----.":
+                        output += "9";
+                        break;
+                    case "-----":
+                        output += "0";
+                        break;           
+                }
+            }
+            
+            //Insert new line into string when current line ends 
+            output += "\n";  
+            
+        }
+        
+        //Print out the converted string
+         System.out.println(output);   
+    }  
+}
