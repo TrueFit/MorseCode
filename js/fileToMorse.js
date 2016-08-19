@@ -10,7 +10,11 @@ var FileTranslator = React.createClass({
 		return(
         <div>
         	<label for="file-upload" style={styles.buttonStyle}>Choose File</label>
-        	<input type="file" style={styles.hiddenStyle} accept=".txt" onChange={this.uploadFile}/>
+        	<input id="file-upload" 
+        		type="file" 
+        		style={styles.hiddenStyle} 
+        		accept=".txt" 
+        		onChange={this.uploadFile}/>
         <br />
         <div>Output: {this.state.displayString}</div>
       </div>);
