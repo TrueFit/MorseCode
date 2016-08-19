@@ -62,7 +62,7 @@ var styles ={
 		margin: 0,
 		padding: 0,
 		fontSize: 20,
-		cursor: pointer,
+		cursor: 'pointer',
 		opacity: 0,
 //		filter: alpha(opacity=0)
 	}
