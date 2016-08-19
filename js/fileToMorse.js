@@ -9,10 +9,8 @@ var FileTranslator = React.createClass({
 	render: function() {
 		return(
         <div>
-        <div style={styles.buttonStyle}>
-        	<span>Choose File</span>
+        	<label for="file-upload" style={styles.buttonStyle}>Choose File</label>
         	<input type="file" style={styles.hiddenStyle} accept=".txt" onChange={this.uploadFile}/>
-        </div>
         <br />
         <div>Output: {this.state.displayString}</div>
       </div>);
@@ -51,20 +49,13 @@ var FileTranslator = React.createClass({
 
 var styles ={
 	buttonStyle: {
-		position: 'relative',
-		overflow: 'hidden',
-		margin: 10
+		display: 'inline-block',
+		padding: 6,
+		cursor: 'pointer'
+		border: 1
 	},
 	hiddenStyle: {
-		position: 'absolute',
-		top: 0,
-		right: 0,
-		margin: 0,
-		padding: 0,
-		fontSize: 20,
-		cursor: 'pointer',
-		opacity: 0,
-		filter: 'alpha(opacity=0)'
+		display: 'none'
 	}
 }
 
