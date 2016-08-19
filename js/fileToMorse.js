@@ -53,7 +53,7 @@ var styles ={
 	hiddenStyle: {
 		position: relative,
 		overflow: hidden,
-		margin: 10px
+		margin: 10
 	},
 	buttonStyle: {
 		position: absolute,
@@ -61,7 +61,7 @@ var styles ={
 		right: 0,
 		margin: 0,
 		padding: 0,
-		fontSize: 20px,
+		fontSize: 20,
 		cursor: pointer,
 		opacity: 0,
 		filter: alpha(opacity=0)
