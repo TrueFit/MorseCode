@@ -33,3 +33,10 @@ Please use whatever technology and techniques you feel are applicable to solve t
 Please fork this repository. When you have completed your solution, please issue a pull request to notify us that you are ready.
 
 Have fun.
+
+Implementation Writeup
+----------------------
+Most of the time working on this was spent learning how react.js works, as well as trying to debug it without an IDE. I ended up using JSBin and JSFiddle to do my initial coding, then switched to running and tweaking it using github pages, which is why I have so many commits.
+
+React.js enables easy integration with a larger system, but on top of that, I left the morseToLatin() function in its own file. It can be used for any morse string to human readable string conversion, not just from files, and so it makes sense to have it accessible outside of the React component.
+
