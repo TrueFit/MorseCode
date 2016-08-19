@@ -51,7 +51,7 @@ var styles ={
 	buttonStyle: {
 		display: 'inline-block',
 		padding: 6,
-		cursor: 'pointer'
+		cursor: 'pointer',
 		border: 1
 	},
 	hiddenStyle: {
