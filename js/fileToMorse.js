@@ -9,7 +9,9 @@ var FileTranslator = React.createClass({
 	render: function() {
 		return(
         <div>
-        	<label for="file-upload" style={styles.buttonStyle}>Choose File
+        	<label for="file-upload" style={styles.buttonStyle}>
+        	<span class="glyphicons glyphicons-upload"></span>
+        	Upload File
         		<input id="file-upload" 
         			type="file" 
         			style={styles.hiddenStyle} 
@@ -17,17 +19,18 @@ var FileTranslator = React.createClass({
         			onChange={this.uploadFile}/>
         	</label>
         <br />
-        <div>Output: {this.state.displayString}</div>
+        <div>Translation: {this.state.displayString}</div>
       </div>);
 	},
   
 	/*
-	 * updates state to show translated output, or display error in parsing
+	 * updates state to show translated output, or alerts user of error in parsing
 	 */
   showTranslation: function(inputString) {
   	var output = morseToLatin(inputString);
   	if (output == undefined){
-  		output = "Unable to parse morse from file.";
+  		window.alert("Unable to parse morse from file.");
+  		output = "";
   	}
    	this.setState({displayString: output})
 
@@ -57,7 +60,7 @@ var styles ={
 		display: 'inline-block',
 		padding: 6,
 		cursor: 'pointer',
-		border: 1
+		border: '1px solid #ccc'
 	},
 	hiddenStyle: {
 		display: 'none'
