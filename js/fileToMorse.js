@@ -51,20 +51,20 @@ var FileTranslator = React.createClass({
 
 var styles ={
 	hiddenStyle: {
-		position: relative;
-		overflow: hidden;
-		margin: 10px;
+		position: relative,
+		overflow: hidden,
+		margin: 10px
 	},
 	buttonStyle: {
-		position: absolute;
-		top: 0;
-		right: 0;
-		margin: 0;
-		padding: 0;
-		fontSize: 20px;
-		cursor: pointer;
-		opacity: 0;
-		filter: alpha(opacity=0);
+		position: absolute,
+		top: 0,
+		right: 0,
+		margin: 0,
+		padding: 0,
+		fontSize: 20px,
+		cursor: pointer,
+		opacity: 0,
+		filter: alpha(opacity=0)
 	}
 }
 
