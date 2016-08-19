@@ -28,7 +28,6 @@ var FileTranslator = React.createClass({
 	 * updates state to show translated output, or alerts user of error in parsing
 	 */
   showTranslation: function(inputString) {
-  	this.setState({displayString: ""});
   	var output = morseToLatin(inputString);
   	if (output == undefined){
   		window.alert("Unable to parse morse from file.");
