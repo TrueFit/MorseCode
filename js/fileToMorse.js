@@ -10,7 +10,6 @@ var FileTranslator = React.createClass({
 		return(
         <div>
         	<label for="file-upload" style={styles.buttonStyle}>
-        	<span class="glyphicons glyphicons-upload"></span>
         	Upload File
         		<input id="file-upload" 
         			type="file" 
