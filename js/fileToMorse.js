@@ -9,22 +9,14 @@ var FileTranslator = React.createClass({
 	render: function() {
 		return(
         <div>
-        <div class="fileUpload btn btn-primary">
+        <div style={styles.buttonStyle}>
         	<span>Choose File</span>
-        	<input type="file" class="upload" accept=".txt" ref={(ref) => this.fileInput = ref}/>
+        	<input type="file" style={styles.hiddenStyle} accept=".txt" onChange={this.uploadFile}/>
         </div>
         <br />
         <div>Output: {this.state.displayString}</div>
       </div>);
 	},
-	
-  componentDidMount: function() {
-  	this.fileInput.addEventListener("change", this.uploadFile);
-  },
-  
-  componentWillUnmount: function() {
-  	this.fileInput.removeEventListener("change", this.uploadFile)
-  },
   
 	/*
 	 * updates state to show translated output, or display error in parsing
@@ -41,9 +33,9 @@ var FileTranslator = React.createClass({
   /*
    * Handles file uploading. Upon uploading file, displays translation.
    */
-	uploadFile: function(){ 
-		if (this.fileInput.files.length > 0){
-  		var file = this.fileInput.files[0];
+	uploadFile: function(event){ 
+		if (event.target.files.length > 0){
+  		var file = event.target.files[0];
 			var reader = new FileReader();
 			reader.onload = function(event) {
     		var contents = event.target.result;
@@ -56,6 +48,25 @@ var FileTranslator = React.createClass({
 		}
 	}
 });
+
+var styles ={
+	hiddenStyle: {
+		position: relative;
+		overflow: hidden;
+		margin: 10px;
+	},
+	buttonStyle: {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+		padding: 0;
+		fontSize: 20px;
+		cursor: pointer;
+		opacity: 0;
+		filter: alpha(opacity=0);
+	}
+}
 
 ReactDOM.render(
 	<FileTranslator />,
