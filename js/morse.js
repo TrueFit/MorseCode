@@ -5,6 +5,7 @@
 
 function morseToLatin(input) {
 	var output = "";
+	input.replace(/^\s+|\s+$/g, '');
 	var letters = input.split(token);
 	for (var i in letters) {
 		if (letterMapping[letters[i]] == undefined) {
