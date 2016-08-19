@@ -18,7 +18,9 @@ var FileTranslator = React.createClass({
         			onChange={this.uploadFile}/>
         	</label>
         <br />
-        <div>Translation: {this.state.displayString}</div>
+        <br />
+        <br />
+        <div><b>Translation:</b> {this.state.displayString}</div>
       </div>);
 	},
   
