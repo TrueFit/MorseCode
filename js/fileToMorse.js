@@ -9,7 +9,10 @@ var FileTranslator = React.createClass({
 	render: function() {
 		return(
         <div>
-        	<input type="file" accept=".txt" ref={(ref) => this.fileInput = ref}/>
+        <div class="fileUpload btn btn-primary">
+        	<span>Choose File</span>
+        	<input type="file" class="upload" accept=".txt" ref={(ref) => this.fileInput = ref}/>
+        </div>
         <br />
         <div>Output: {this.state.displayString}</div>
       </div>);
