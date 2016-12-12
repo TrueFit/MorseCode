@@ -1,0 +1,110 @@
+/*This solution to the Morse Code challenge is written in Java. I have written this function under the assumption
+  that it is part of a larger system and will be called by another function. The calling function will pass in
+  a string containing the address of the file that contains the Morse Code that is to be translated. The English
+  translation is written out to a file named "englText.txt". 																										*/
+  
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+public void morseTranslate(fileAddress)
+{
+	String morseLine="";
+	String englLine="";
+	String morseChar="";
+	int endChar=0;
+	int englIndex=-1;
+
+	//Define the alphabets
+	String morseAlphabet[]={".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---","-.-", ".-..",
+			"--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", 
+			"-.--", "--.."};
+	String englAlphabet[]={"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
+			"q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+
+	try 
+	{
+		FileInputStream morseFile=new FileInputStream(fileAddress);
+		InputStreamReader myIS=new InputStreamReader(morseFile);
+		BufferedReader myReader=new BufferedReader(myIS);
+
+		PrintWriter englishFile=new PrintWriter(new FileWriter("englText.txt"));
+
+		morseLine=myReader.readLine();						//get first line from file
+
+		while(morseLine!=null)
+		{
+			//check to be sure the line is actual morse code, no other characters.
+			for(int i=0; i<morseLine.length(); i++)
+				if(morseLine.charAt(i)!= '.' && morseLine.charAt(i)!= '-' && morseLine.charAt(i)!= '|')
+					morseLine=morseLine.replace(morseLine.charAt(i), ' ');			//remove the unwanted character
+
+			morseLine=morseLine.replaceAll(" ", "");		//remove any white space
+
+			endChar=morseLine.indexOf('|');					//find first pause
+			boolean done=false;
+
+			//while we haven't reached the end of the string
+			while(!done)
+			{
+				morseChar=morseLine.substring(0, endChar);	//get the morse character only
+					if(endChar!=morseLine.length())				//if we are not on the last character, remove the char from the string
+						morseLine=morseLine.substring(endChar+1, morseLine.length());
+					else										//if we ARE on the last character, dont go through the loop another time
+						done=true;
+
+				if(endChar==0)								//if there are two pauses in a row, the char is a space
+					englLine+=' ';
+
+				else
+				{
+					int i=0;
+					boolean found=false;
+
+					while(!found && i<26)					//otherwise, figure out which character it is
+					{
+						if(morseChar.compareTo(morseAlphabet[i])==0)
+						{
+							found=true;						//set to true so we exit the loop
+							englIndex=i;					//save the index to access the english alphabet
+						}
+
+						i++;
+					}//end inner while
+
+					englLine+=englAlphabet[englIndex];		//add the appropriate character to the english line	
+					englIndex=-1;							//reset index for next time
+					found=false;
+
+				}//end else
+
+				endChar=morseLine.indexOf('|');				//get next pause
+				if(endChar==-1)								//if no more pauses, we have reached the last morse character
+					endChar=morseLine.length();	
+
+			}//end while !done
+
+			englishFile.println(englLine);
+
+			morseLine=myReader.readLine();					//get next line from file
+			endChar=0;	
+			englLine="";
+		}//end while ready
+
+		englishFile.close();								//close file, end program
+		myReader.close();
+	}//end try
+
+	catch (FileNotFoundException e) 
+	{
+		e.printStackTrace();
+	} 
+	catch (IOException e) 
+	{
+		e.printStackTrace();
+	}
+}
