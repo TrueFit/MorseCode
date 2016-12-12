@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MorseCodeTranslator
+{
+    /// <summary>
+    /// Class created with functionality to read files
+    /// </summary>
+    public static class FileReader
+    {
+        /// <summary>
+        /// Reads a file and performs whatever validation is necessary
+        /// </summary>
+        /// <param name="File">File that will be read</param>
+        /// <returns></returns>
+        public static string ReadFile(FileInfo File)
+        {
+            try
+            {
+                //Verify that the file exists
+                if (!File.Exists)
+                    throw new Exception("File does not exist.");
+
+                using (var input = new StreamReader(File.FullName, true))
+                {
+                    //Return the full file as a string
+                    return input.ReadToEnd();
+                }
+            }
+            catch
+            {                
+                throw;
+            }           
+        }
+    }
+}
