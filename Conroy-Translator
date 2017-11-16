@@ -1,0 +1,44 @@
+#A new class called 'translator' and a method called 'morse_code'
+#if user enters 'translator.morse_code('**insert morse code here**')' then the translation is returned
+class translator:
+    
+    def morse_code(morse_code):
+
+#The english alphabet and morse code alphabet it put into their respective lists
+        alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
+                    ,"q","r","s","t","u","v","w","x","y","z"]
+        morse_alphabet = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---",
+                          "-.-",".-..","--","-.","---",".--.","--.-",".-.","...",
+                          "-","..-","...-",".--","-..-","-.--","--.."]
+#variables translation, counter, letters, and word are all created, and the user input is split up into sperate words
+        translation = ""
+        morse_code = morse_code.replace("||||"," ")
+        phrase = morse_code.split()
+        word = ""
+        counter = 0
+        letters = []
+#each letter is put into letters, a two dimential list first split by words, then letters    
+        while counter < len(phrase):
+            word = phrase[counter]
+            word = word.replace("||"," ")
+            letters.append(word.split())
+            counter += 1
+        word_counter = 0
+        letter_counter = 0
+#The list letters is translated one letter at a time by comparing to the morse_alphabet list, and replacing characters using the alphabet list
+        while word_counter < len(letters):
+            while letter_counter < len(letters[word_counter]):   
+                char = letters[word_counter][letter_counter]
+                letter_check = 0
+                while letter_check < 26:
+                    if char == morse_alphabet[letter_check]:
+                        translation += alphabet[letter_check]
+                    letter_check += 1
+                letter_counter += 1
+            letter_counter = 0
+#adds spaces between words but not after the last one
+            if word_counter < len(letters)-1:
+                translation += " "
+            word_counter += 1
+#returns final translation
+        return translation
