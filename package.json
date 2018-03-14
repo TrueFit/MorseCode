@@ -1,0 +1,28 @@
+{
+  "name": "morse-code",
+  "version": "1.0.0",
+  "description": "simple service for morse code translation",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon bin/dev --exec babel-node --presets es2015,stage-2",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdir dist && babel src/server -s -d dist",
+    "production": "npm run build && node bin/prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrueFit/MorseCode"
+  },
+  "author": "Takieddine Boumaza",
+  "license": "ISC",
+  "dependencies": {
+    "express": "*"
+  },
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-stage-2": "*",
+    "babel-register": "*",
+    "nodemon": "*"
+  }
+}

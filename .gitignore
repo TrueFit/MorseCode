@@ -1,0 +1,8 @@
+*.log
+npm-depub.log*
+.history
+.npm
+node_modules
+dis
+.vscode
+bin
