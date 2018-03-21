@@ -1,0 +1,9 @@
+C:\Users\Shayne\Documents\Test Repo\MorseCodeCoverter\MorseCodeCoverter\bin\Debug\MorseCodeCoverter.exe.config
+C:\Users\Shayne\Documents\Test Repo\MorseCodeCoverter\MorseCodeCoverter\bin\Debug\MorseCodeCoverter.exe
+C:\Users\Shayne\Documents\Test Repo\MorseCodeCoverter\MorseCodeCoverter\bin\Debug\MorseCodeCoverter.pdb
+C:\Users\Shayne\Documents\Test Repo\MorseCodeCoverter\MorseCodeCoverter\obj\Debug\MorseCode.Form1.resources
+C:\Users\Shayne\Documents\Test Repo\MorseCodeCoverter\MorseCodeCoverter\obj\Debug\MorseCodeCoverter.Properties.Resources.resources
+C:\Users\Shayne\Documents\Test Repo\MorseCodeCoverter\MorseCodeCoverter\obj\Debug\MorseCode.csproj.GenerateResource.cache
+C:\Users\Shayne\Documents\Test Repo\MorseCodeCoverter\MorseCodeCoverter\obj\Debug\MorseCode.csproj.CoreCompileInputs.cache
+C:\Users\Shayne\Documents\Test Repo\MorseCodeCoverter\MorseCodeCoverter\obj\Debug\MorseCodeCoverter.exe
+C:\Users\Shayne\Documents\Test Repo\MorseCodeCoverter\MorseCodeCoverter\obj\Debug\MorseCodeCoverter.pdb
